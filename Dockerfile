@@ -26,5 +26,6 @@ COPY . /app/
 EXPOSE 8000
 
 # Run migrations and start the Django development server
-CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
+CMD ["gunicorn", "DjangoEcommerce.wsgi:application", "--bind", "0.0.0.0:8000"]
+
 
